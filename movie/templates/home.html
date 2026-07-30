@@ -7,5 +7,27 @@
   <body>
     <h1>Welcome to Home Page, {{ name }}</h1>
     <p>This is the full home page.</p>
+
+    <form method="GET">
+      <input
+        type="text"
+        name="searchMovie"
+        placeholder="Search movie..."
+        value="{{ searchTerm }}"
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    <h2>Movies</h2>
+    {% for movie in movies %}
+    <div>
+      <h3>{{ movie.title }}</h3>
+      <img src="{{ movie.image.url }}" alt="{{ movie.title }}" width="180" />
+      <p>{{ movie.description }}</p>
+      {% if movie.url %}
+      <a href="{{ movie.url }}">More info</a>
+      {% endif %}
+    </div>
+    {% endfor %}
   </body>
 </html>
