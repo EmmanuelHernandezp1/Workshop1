@@ -28,7 +28,7 @@
             name="searchMovie"
             class="form-control"
             placeholder="Search movie..."
-            value="{{ searchTerm }}"
+            value="{{ searchTerm|default_if_none:'' }}"
           />
         </div>
         <div class="col-auto">
